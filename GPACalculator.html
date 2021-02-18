@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>GPA Calculator Page</title>
+<meta name="author" content="Bahaa Hayajneh">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta charset="utf-8">
+<script src="mainjava.js">
+
+</script>
+<script>
+
+function add(){
+      var new_chq_no = parseInt($('#total_chq').val())+1;
+      var new_input="<input type='text'  pattern='[ABCDF][+-]?' class='form-control' placeholder='Enter Symbol Of Your Marks,Such A+' required  id='new_"+new_chq_no+"'><br>";
+      var new_input2="<input type='text'   class='form-control' placeholder='Enter Number Of Hours To This Material' required  id='1new_"+new_chq_no+"'><br>";
+      $('#new_chq').append(new_input);
+      $('#new_chq2').append(new_input2);
+      $('#total_chq').val(new_chq_no)
+    }
+    function remove(){
+      var last_chq_no = $('#total_chq').val();
+      if(last_chq_no>1){
+        $('#new_'+last_chq_no).remove();
+        $('#1new_'+last_chq_no).remove();
+        $('#total_chq').val(last_chq_no-1);
+      }
+    }
+function  CalGpa()
+{
+    var sum=0;
+    var hours=0;
+    for(var i=1;i<=8;i++)
+{
+var symbol=document.getElementById('m'+i).value;
+var hou=parseInt(document.getElementById('h'+i).value);
+var sel=document.getElementById('sel'+i).value;
+
+if(symbol=='A+' && sel=='Calculated In The Gpa')
+{
+sum=sum+4.2*hou;
+hours+=hou;
+}
+else if(symbol=='A+' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+
+
+
+
+
+ if(symbol=='A' && sel=='Calculated In The Gpa')
+{
+sum=sum+4*hou;
+hours+=hou;
+}
+else if(symbol=='A' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+
+ if(symbol=='A-' && sel=='Calculated In The Gpa')
+{
+sum=sum+3.75*hou;
+hours+=hou;
+}
+else if(symbol=='A-' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+
+ if(symbol=='B+' && sel=='Calculated In The Gpa')
+{
+sum=sum+3.5*hou;
+hours+=hou;
+}
+else if(symbol=='B+' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+
+ if(symbol=='B' && sel=='Calculated In The Gpa')
+{
+sum=sum+3.25*hou;
+hours+=hou;
+}
+else if(symbol=='B' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+
+
+ if(symbol=='B-' && sel=='Calculated In The Gpa')
+{
+sum=sum+3*hou;
+hours+=hou;
+}
+else if(symbol=='B-' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+
+
+
+
+ if(symbol=='C+' && sel=='Calculated In The Gpa')
+{
+sum=sum+2.75*hou;
+hours+=hou;
+}
+else if(symbol=='C+' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+
+ if(symbol=='C' && sel=='Calculated In The Gpa')
+{
+sum=sum+2.50*hou;
+hours+=hou;
+}
+else if(symbol=='C' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+ if(symbol=='C-' && sel=='Calculated In The Gpa')
+{
+sum=sum+2.25*hou;
+hours+=hou;
+}
+else if(symbol=='C-' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+
+
+
+
+
+
+
+ if(symbol=='D+' && sel=='Calculated In The Gpa')
+{
+sum=sum+2*hou;
+hours+=hou;
+}
+else if(symbol=='D+' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+ if(symbol=='D' && sel=='Calculated In The Gpa')
+{
+sum=sum+1.75*hou;
+hours+=hou;
+}
+else if(symbol=='D' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+ if(symbol=='D-' && sel=='Calculated In The Gpa')
+{
+sum=sum+1.5*hou;
+hours+=hou;
+}
+else if(symbol=='D' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+ if(symbol=='F' && sel=='Calculated In The Gpa')
+{
+sum=sum+0.5*hou;
+hours+=hou;
+}
+else if(symbol=='F' && sel!='Calculated In The Gpa')
+ {
+    sum=sum+0*hou;
+ }
+var gpa=parseFloat(document.getElementById("cumgpa").value);
+var cuhour=parseFloat(document.getElementById("cumhours").value);
+var gpabycumhours=parseFloat((gpa*cuhour));
+var gpathis=parseFloat(sum/hours);
+var gpathisbyhours=parseFloat(gpathis*hours);
+document.getElementById("this").value=gpathis;
+var r=parseFloat((gpa*cuhour)+(gpathis*hours));
+var z=cuhour+hours;
+document.getElementById("after").value=parseFloat(r/z);
+
+}
+
+
+   
+}
+
+
+
+
+
+
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="jquery-3.5.1.slim.min.js"></script>
+<script src="popper.min.js"></script>
+<link rel="stylesheet" href="mystyle.css">
+<style>
+
+
+
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+a:hover
+{
+color:black;
+
+
+}
+span
+{
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+    <div style="margin: 0;background-color:white;" class="container-fluid border  text-dark  row ">
+        <ul class="navbar ">
+        
+        <li class="nav-item"><a  class="text-dark col-sm  " href="Home.html">Home</a></li>
+        
+        <li class="nav-item"><a  class="text-dark col-sm " href="sighnup.html">Sign Up</a></li>
+        <li class="nav-item"><a  class="text-dark col-sm " href="login.html">Log In </a></li>
+        <li class="nav-item"><a  class="text-dark col-sm " href="contact.html">Contact</a></li>
+       
+        <form>
+        <input class="col-sm"  type="search" placeholder=" Search...">
+        <button  type="button"  class="btn btn-lg btn-dark  text-white "><span class="glyphicon glyphicon-search"></span>Search</button>
+        
+        </div>
+        </form>
+       
+        </ul>
+    
+        <br><br><br> <br> 
+        <div class="display-4 text-dark text-center just"><span class="text-dark" style="font-weight: bold;">GPA </span><span class="text-dark">CALCU</span><span class="text-dark">LATOR</span> <span class="text-primary">J</span><span class="text-danger">U</span><span class="text-warning">S</span><span class="text-success">T</span> <span class="text-danger">UNIVER</span><span class="text-warning">SITY</span><img  class="img-fluid hea" src="images/heart1.jpg"></div><br><br>
+<img class="img-fluid mx-auto d-block" src="images/just.png"><br><br>
+<hr><br><br>
+        <div class="container-fluid text-muted">
+
+
+            <h1 class="text-dark ">About GPA Calculator.</h1>
+            
+            <p class="text-muted">
+            
+            -The Calculator is simple tool to calculate GPA Of <span class="text-primary">J</span><span class="text-danger">U</span><span class="text-warning">S</span><span class="text-success">T</span>
+            
+            <span class="text-danger">Univer</span><span class="text-warning">sity</span>.
+            </p>
+            
+            <h1 class="text-dark">Benefit of this tool .</h1>
+            
+            - Simple tool to calculate the GPA in a very accurate way .<br><br>
+            
+            -This tool is working in any type of devices such as laptop,PC,Tablet,Phones,...etc.
+            
+            
+            
+                </div>
+            
+          
+  <br><br><br><br><br><br>         
+<table style="font-weight: bold;" class="table  table-bordered tables-striped table-hover">
+<tr class="bg-dark text-white">
+<th>Marks</th>
+<th>Symbol</th>
+<th>Symbol Equivalent</th>
+<th>Description</th>
+</tr>
+<tr >
+ <td>95-100</td>
+<td>A+</td>
+<td>4.2</td>
+<td>Excellence</td>
+</tr>
+<tr>
+    <td>85-94</td>
+   <td>A</td>
+   <td>4.0</td>
+   <td>Excellence</td>
+   </tr>
+   <tr>
+    <td>80-84</td>
+   <td>A-</td>
+   <td>3.75</td>
+   <td>Excellent</td>
+   </tr>
+
+   <tr>
+    <td>77-79</td>
+   <td>B+</td>
+   <td>3.50</td>
+   <td>Excellent</td>
+   </tr>
+   <tr>
+    <td>73-76</td>
+   <td>B</td>
+   <td>3.25</td>
+   <td>Very Good</td>
+   </tr>
+   <tr>
+    <td>70-72</td>
+   <td>B-</td>
+   <td>3.00</td>
+   <td>Very Good</td>
+   </tr>
+   <tr>
+    <td>67-69</td>
+   <td>C+</td>
+   <td>2.75</td>
+   <td>Good</td>
+   </tr>
+   <tr>
+    <td>63-66</td>
+   <td>C</td>
+   <td>2.50</td>
+   <td>Good</td>
+   </tr>
+   <tr>
+    <td>60-62</td>
+   <td>C-</td>
+   <td>2.25</td>
+   <td>Acceptable</td>
+   </tr>
+   <tr>
+    <td>57-59</td>
+   <td>D+</td>
+   <td>2.00</td>
+   <td>Acceptable</td>
+   </tr>
+   <tr>
+    <td>53-56</td>
+   <td>D</td>
+   <td>1.75</td>
+   <td>Warning</td>
+   </tr>
+   <tr>
+    <td>50-52</td>
+   <td>D-</td>
+   <td>1.50</td>
+   <td>Warning</td>
+   </tr>
+   <tr>
+    <td>&lt;=49</td>
+   <td>F</td>
+   <td>0.50</td>
+   <td>Failed</td>
+   </tr>
+
+</table>
+<br><br><br>
+
+  
+  <div class="container-fluid bg-light border text-dark">
+      <img style="height: 300px;" class="img-fluid mx-auto d-block" src="images/cover.png">
+      <div class="display-3 text-center just"><span class="text-primary">G</span><span class="text-danger">P</span><span class="text-warning">A</span> <span class="text-primary">CAL</span><span class="text-success">C<span class="text-info">U</span>L</span><span class="text-warning">AT<span class="text-danger">O</span>R</span></div><br><br>
+      <div class="text-light text-center">CALCULATE YOUR GPA IF YOU STUDY IN JUST UNIVERSITY</div><br><br>
+      <div style="margin-left: 12%;" class="spinner  spinner-grow spinner-grow-sm text-muted"></div>
+      <div style="margin-left: 10%;" class="spinner spinner-grow spinner-grow-sm text-primary"></div>
+      <div style="margin-left: 10%;" class="spinner spinner-grow spinner-grow-sm text-danger"></div>
+    <div style="margin-left: 10%;" class="spinner spinner-grow spinner-grow-sm text-warning"></div>
+    <div style="margin-left: 10%;"  class="spinner spinner-grow spinner-grow-sm text-dark"></div>
+    <div style="margin-left: 10%;" class="spinner spinner-grow spinner-grow-sm text-success"></div>
+  <br><br><br>
+<form class="was-validated">
+<div class="form-group"><!--[+-]?([1-4]*[.])?[0-9]+-->
+    <label style="font-weight: bold;"> CUMULATIVE GPA</label>
+<input class="form-control" id="cumgpa" type="text" pattern="^[-]?([1-4]{1}(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|\.[0-4]{1,2})$"  required placeholder="Gpa Cumulative Such 3.00">
+<div class="valid-feedback">Valid GPA</div>
+<div class="invalid-feedback">InValid GPA</div>
+</div>
+<div class="form-group">
+    <label style="font-weight: bold;">CUMULATIVE HOURS</label>
+<input class="form-control" pattern="[0-9]?" type="number" id="cumhours"  required placeholder="Enter  Cumulative Hours Without This Semester">
+<div class="valid-feedback">Valid Hours</div>
+<div class="invalid-feedback">InValid Hours</div>
+</div>
+<hr class="hr1">
+
+<div class="form-group">
+    <label style="font-weight: bold;">Marks of Material 1</label>
+<input pattern="[ABCDF][+-]?" class="form-control" id="m1"   type="text"  placeholder="Enter Symbol Of Your Marks,Such A+">
+<div class="valid-feedback">Valid Marks</div>
+<div class="invalid-feedback">InValid Marks</div>
+<div>
+    <label style="font-weight: bold;">Hours of Material 1</label>
+    <input class="form-control"  type="number" id="h1"   placeholder="Enter Number Of Hours To This Material">
+    <div class="valid-feedback">Valid Hours</div>
+<div class="invalid-feedback">InValid Hours</div>
+<div class="form-group">
+    <label>Caculation Mechanism</label>
+<select class="form-control" id="sel1">
+    <option>Calculated In The Gpa</option>
+    <option>Calculated As Success/Failed</option>
+</select>
+
+
+</div>
+</div>
+
+</div>
+<hr>
+
+<div class="form-group">
+    <label style="font-weight: bold;">Marks of Material 2</label>
+<input pattern="[ABCDF][+-]?" class="form-control"  id="m2"   type="text"  placeholder="Enter Symbol Of Your Marks,Such A+">
+<div class="valid-feedback">Valid Marks</div>
+<div class="invalid-feedback">InValid Marks</div>
+<div>
+    <label style="font-weight: bold;">Hours of Material2</label>
+    <input class="form-control"  type="number" id="h2"  placeholder="Enter Number Of Hours To This Material">
+    <div class="valid-feedback">Valid Hours</div>
+<div class="invalid-feedback">InValid Hours</div>
+</div>
+<div class="form-group">
+    <label>Caculation Mechanism</label>
+<select class="form-control" id="sel2">
+    <option>Calculated In The Gpa</option>
+    <option>Calculated As Success/Failed</option>
+</select>
+
+
+</div>
+
+</div>
+<hr>
+<div class="form-group">
+    <label style="font-weight: bold;">Marks of Material 3</label>
+<input pattern="[ABCDF][+-]?" class="form-control" id="m3"   type="text" placeholder="Enter Symbol Of Your Marks,Such A+">
+<div class="valid-feedback">Valid Marks</div>
+<div class="invalid-feedback">InValid Marks</div>
+<div>
+    <label style="font-weight: bold;">Hours of Material 3</label>
+    <input class="form-control"  type="number" id="h3"  placeholder="Enter Number Of Hours To This Material">
+    <div class="valid-feedback">Valid Hours</div>
+<div class="invalid-feedback">InValid Hours</div>
+</div>
+<div class="form-group">
+    <label>Caculation Mechanism</label>
+<select class="form-control" id="sel3">
+    <option>Calculated In The Gpa</option>
+    <option>Calculated As Success/Failed</option>
+</select>
+
+
+</div>
+
+</div>
+<hr>
+<div class="form-group">
+    <label style="font-weight: bold;">Marks of Material 4</label>
+<input pattern="[ABCDF][+-]?" class="form-control" id="m4"    type="text"  placeholder="Enter Symbol Of Your Marks,Such A+">
+<div class="valid-feedback">Valid Marks</div>
+<div class="invalid-feedback">InValid Marks</div>
+<div>
+    <label style="font-weight: bold;">Hours of Material 4</label>
+    <input class="form-control" type="number"  id="h4"  placeholder="Enter Number Of Hours To This Material">
+    <div class="valid-feedback">Valid Hours</div>
+<div class="invalid-feedback">InValid Hours</div>
+</div>
+
+
+<div class="form-group">
+    <label>Caculation Mechanism</label>
+<select class="form-control" id="sel4">
+    <option>Calculated In The Gpa</option>
+    <option>Calculated As Success/Failed</option>
+</select>
+
+
+</div>
+</div>
+<hr>
+<div class="form-group">
+    <label style="font-weight: bold;">Marks of Material 5</label>
+<input pattern="[ABCDF][+-]?" class="form-control" id="m5"   type="text"  placeholder="Enter Symbol Of Your Marks,Such A+">
+<div class="valid-feedback">Valid Marks</div>
+<div class="invalid-feedback">InValid Marks</div>
+<div>
+    <label style="font-weight: bold;">Hours of Material 5</label>
+    <input class="form-control" type="number" id="h5"   placeholder="Enter Number Of Hours To This Material">
+    <div class="valid-feedback">Valid Hours</div>
+<div class="invalid-feedback">InValid Hours</div>
+</div>
+
+<div class="form-group">
+    <label>Caculation Mechanism</label>
+<select class="form-control" id="sel5">
+    <option>Calculated In The Gpa</option>
+    <option>Calculated As Success/Failed</option>
+</select>
+
+
+</div>
+</div>
+<hr>
+<div class="form-group">
+    <label style="font-weight: bold;">Marks of Material  6</label>
+<input pattern="[ABCDF][+-]?" class="form-control" id="m6"  type="text"  placeholder="Enter Symbol Of Your Marks,Such A+">
+<div class="valid-feedback">Valid Marks</div>
+<div class="invalid-feedback">InValid Marks</div>
+<div>
+    <label style="font-weight: bold;">Hours of Material 6</label>
+    <input class="form-control"  type="number" id="h6" placeholder="Enter Number Of Hours To This Material">
+    <div class="valid-feedback">Valid Hours</div>
+<div class="invalid-feedback">InValid Hours</div>
+</div>
+
+<div class="form-group">
+    <label>Caculation Mechanism</label>
+<select class="form-control" id="sel6">
+    <option>Calculated In The Gpa</option>
+    <option>Calculated As Success/Failed</option>
+</select>
+
+
+</div>
+</div>
+<hr>
+<div class="form-group">
+    <label style="font-weight: bold;">Marks of Material 7</label>
+<input pattern="[ABCDF][+-]?" class="form-control"  id="m7"  type="text"  placeholder="Enter Symbol Of Your Marks,Such A+">
+<div class="valid-feedback">Valid Marks</div>
+<div class="invalid-feedback">InValid Marks</div>
+<div>
+    <label style="font-weight: bold;">Hours of Material 7</label>
+    <input class="form-control"  type="number" id="h7"   placeholder="Enter Number Of Hours To This Material">
+    <div class="valid-feedback">Valid Hours</div>
+<div class="invalid-feedback">InValid Hours</div>
+</div>
+
+<div class="form-group">
+    <label>Caculation Mechanism</label>
+<select class="form-control" id="sel7">
+    <option>Calculated In The Gpa</option>
+    <option>Calculated As Success/Failed</option>
+</select>
+
+
+</div>
+</div>
+<hr>
+<div class="form-group">
+    <label style="font-weight: bold;">Marks of Material 8</label>
+<input pattern="[ABCDF][+-]?" class="form-control" id="m8"   type="text"  placeholder="Enter Symbol Of Your Marks,Such A+">
+<div class="valid-feedback">Valid Marks</div>
+<div class="invalid-feedback">InValid Marks</div>
+<div>
+    <label style="font-weight: bold;">Hours of Material 8</label>
+    <input class="form-control"  type="number"  id="h8" placeholder="Enter Number Of Hours To This Material">
+    <div class="valid-feedback">Valid Hours</div>
+<div class="invalid-feedback">InValid Hours</div>
+</div>
+
+<div class="form-group">
+    <label>Caculation Mechanism</label>
+<select class="form-control" id="sel8">
+    <option>Calculated In The Gpa</option>
+    <option>Calculated As Success/Failed</option>
+</select>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br>
+
+<button style="width: 100%;" class="btn btn-primary" onclick="CalGpa()" type="button" data-toggle="modal" data-target="#myModal1">Calculate</button><br><br>
+<button style="width: 100%;" class="btn btn-success" type="reset">Clear</button>
+<br><br><br><br><br><br><br><br>
+
+</form>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+  </div>
+  
+  <div >
+
+    <div class="modal fade bg-dark border" id="myModal1">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+         <center><h4 class="modal-title  text-dark">Congratulations ...!!</h4></center>   
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+          <center><img  class="img-fluid center border img-thumbnail" src="images/confi.jpg"></center>  <br><br>
+            <div class="form-group">
+                <label>GPA OF THIS SEMESTER</label>
+            <input id="this" class="form-control" type="text">
+            
+            </div>
+            
+            <div class="form-group">
+                <label>GPA CUMULATIVE AFTER THIS SEMESTER</label>
+            <input id="after" class="form-control" type="text">
+            
+            
+            
+            </div>
+            
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+
+  <br><br><br><br><br><br><br>
+  <div class="container-fluid border bg-light ">
+    <br>
+<div style="font-size:40px;" class="text-muted">Share Your Opinion From Here...</div><br>
+<form >
+    <div class="form-group">
+<label class="text-muted">UserName</label><br>
+<input class="form-control" type="text" placeholder="UserName" required><br>
+<div class="valid-feedback">Valid UserName</div>
+
+<div class="invalid-feedback">Please fill out this field.</div>
+</div>
+
+
+<div class="form-group">
+
+<textarea rows="10" class="form-control" required placeholder="Write Your Comment From Here..."></textarea>
+<div class="valid-feedback">Valid Comment</div>
+
+<div class="invalid-feedback">Please fill out this field.</div>
+
+</div>
+
+<button type="button" style="width: 100%;" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+Comment
+</button>
+<br><br>
+<button style="width: 100%;" type="reset" class="btn btn-success ">Clear</button>
+
+</form>
+<br><br><br><br><br><br>
+</div>
+
+</div>
+    
+</div>
+<div>
+
+  <div class="modal fade bg-dark" id="myModal">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Thank You For Spending Some Times To Share Your Openion ...</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <img class="img-fluid " src="images/Thanksyou.jpg">
+         
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+ 
+ <br><br><br><br><br><br><br>
+  
+<div class="container-fluid bg-light border text-dark ">
+    <br><br>
+    
+    <h1 class="text-center">Contact Me</h1><hr>
+    <h4  class="text-dark text-center">Contact me by social media or Contact page</h4><br><br>
+    <a style="margin-left: 47%;" href="https://twitter.com/BahaaHayajneh2"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.instagram.com/abu_wesam212/"><i class="fa fa-instagram"></i></a>
+    <a href="https://api.whatsapp.com/send?phone=0778343994"><i class="fa fa-whatsapp"></i></a>
+    <a href="https://web.facebook.com/Bahaa.haya99"><i class="fa fa-facebook"></i></a>
+    <br><br><br><br><br><br>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>
